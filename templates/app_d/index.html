@@ -12,7 +12,13 @@
 <body>
     <h1>Director:</h1>
     {% for x in data %}
-        <li>{{x.director_name}} {{x.director_surname}}</li>
+        <li>
+            {{x.director_name}} {{x.director_surname}}
+            <a href="{% url 'edit_page' %}" >Edit</a>
+            <a href="" >Delete</a>
+
+        </li>
+        
     {% endfor %}
 </body>
 </html>
