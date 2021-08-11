@@ -1,4 +1,5 @@
 {% extends 'app_d/base.html' %}
+
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,17 +7,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit director</title>
+    <title>Delete</title>
 </head>
 <body>
-    <h2>Edit director page</h2>
-    <form action="" method="POST">
-        {{form}}
-        {% csrf_token %}
-        <input type="submit" name="submit" value="Edit">
-    </form>
-    <hr>
-    {{q}}
+    <h1>Delete director</h1>
+    <h2>Director {{q.director_name}} {{q.director_surname}} removed from database...</h2>
 </body>
 </html>
 {% endblock %}

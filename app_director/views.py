@@ -38,9 +38,30 @@ def detail(request,idid):
     return render(request, 'app_d/detail.html',context)
 
 
-def edit(request):
+def edit(request,yonetmen_no):
+    instance = Director.objects.get(pk=yonetmen_no)
+    
+    if request.method == 'POST':
+        form = YonetmenForm(request.POST,instance=instance)
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+    else:
+        form = YonetmenForm(instance=instance)
+
     form = YonetmenForm()
     context = {
         'form':form,
+        'q':instance,
     }
     return render (request,'app_d/edit_director.html',context)
+
+def deleteDirector(request,delete_id):
+    q = Director.objects.get(pk=delete_id)
+    x = Director.objects.get(pk=delete_id)
+    
+    x.delete()
+    context = {
+        'q':q,
+    }
+    return render (request,'app_d/delete.html',context)

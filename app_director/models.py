@@ -9,3 +9,7 @@ class Director(models.Model):
 
     def __str__(self):
         return self.director_name + " " + self.director_surname
+
+
+class Movie(models.Model):
+    film_name = 

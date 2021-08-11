@@ -14,8 +14,8 @@
     {% for x in data %}
         <li>
             {{x.director_name}} {{x.director_surname}}
-            <a href="{% url 'edit_page' %}" >Edit</a>
-            <a href="" >Delete</a>
+            <a href="{% url 'edit_page' yonetmen_no=x.pk %}" >Edit</a>
+            <a href="{% url 'delete_page' delete_id=x.pk %}" >Delete</a>
 
         </li>
         
