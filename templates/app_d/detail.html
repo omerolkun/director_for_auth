@@ -11,7 +11,22 @@
 </head>
 <body>
     <h1>Detail page</h1>
-    <h2>{{q}}</h2>
+    <h2>Director: {{data.director_name}} {{data.director_surname}}</h2>
+    <h3>Movies:</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th></th>
+        </tr>
+        {% for x in data.movie_set.all %}
+            <tr>
+                <td>{{x.film_name}}</td>
+                <td>{{x.country}}</td>
+                <td><a href="{% url 'edit_movie_page' m_id=x.pk %}">EDIT</a>  </td>
+            </tr>
+            {% endfor %}
+    </table>
 </body>
 </html>
 {% endblock %}

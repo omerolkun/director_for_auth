@@ -11,15 +11,26 @@
 </head>
 <body>
     <h1>Director:</h1>
+    <table>
+        <tr>
+            <th>Director</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    
     {% for x in data %}
-        <li>
-            {{x.director_name}} {{x.director_surname}}
-            <a href="{% url 'edit_page' yonetmen_no=x.pk %}" >Edit</a>
-            <a href="{% url 'delete_page' delete_id=x.pk %}" >Delete</a>
-
-        </li>
+        <tr>
+            <td><a href="{% url 'detail_page' idid=x.pk %}" >{{x.director_name}} {{x.director_surname}}</a></td>
+            
+            <td><a href="{% url 'edit_page' yonetmen_no=x.pk %}" >Edit</a></td>
+            <td><a href="{% url 'delete_page' delete_id=x.pk %}" >Delete</a></td>
+            <td><a href="{% url 'add_movie_page' drextor_id=x.pk %}">Add movie</a></td>
+        </tr>
+        
         
     {% endfor %}
+</table>
 </body>
 </html>
 {% endblock %}
